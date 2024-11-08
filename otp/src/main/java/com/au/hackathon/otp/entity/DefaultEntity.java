@@ -18,8 +18,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Embeddable
 @Audited
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class DefaultEntity implements Serializable{
 
 	 /**

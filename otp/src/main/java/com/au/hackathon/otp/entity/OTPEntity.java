@@ -16,8 +16,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "otp_details")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class OTPEntity implements Serializable {
 
 	/**
