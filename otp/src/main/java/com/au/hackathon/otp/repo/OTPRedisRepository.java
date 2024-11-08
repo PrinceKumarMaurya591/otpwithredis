@@ -12,50 +12,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-//@Repository
-//public class OTPRedisRepository {
-//
-//	private final RedisTemplate<String, Object> redisTemplate;
-//
-//	@Autowired
-//	public OTPRedisRepository(RedisTemplate<String, Object> redisTemplate) {
-//		this.redisTemplate = redisTemplate;
-//	}
-//
-//	public void saveOTP(String key, OTPEntity otpEntity) {
-//		redisTemplate.opsForValue().set(key, otpEntity);
-//	}
-//
-//	public OTPEntity getOTP(String key) {
-//		// Use the ObjectMapper to convert the LinkedHashMap to OTPEntity
-//		Object value = redisTemplate.opsForValue().get(key);
-//		if (value != null && value instanceof LinkedHashMap) {
-//			// Convert LinkedHashMap to OTPEntity
-//			ObjectMapper objectMapper = new ObjectMapper();
-//			objectMapper.registerModule(new JavaTimeModule());
-//			objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-//
-//			// Map the LinkedHashMap to OTPEntity
-//			return objectMapper.convertValue(value, OTPEntity.class);
-//		} else if (value instanceof OTPEntity) {
-//			return (OTPEntity) value;
-//		}
-//		return null;
-//	}
-//
-//	public void deleteOTP(String key) {
-//		redisTemplate.delete(key);
-//	}
-//}
-
-
-
-
-
-
-
-
-
 
 @Repository
 public class OTPRedisRepository {

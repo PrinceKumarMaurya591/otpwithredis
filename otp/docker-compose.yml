@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  otp:
+    build: .
+    ports:
+      - "8080:8080"  # Map the container's port to the host machine's port
+    environment:
+      - DB_URL=jdbc:mysql://mysql:3306/otpdb
+      - DB_USER=root
+      - DB_PASSWORD=root
+    depends_on:
+      - mysql
+      - redis
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: otpdb
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
